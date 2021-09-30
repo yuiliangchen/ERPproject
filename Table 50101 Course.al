@@ -13,12 +13,37 @@ table 50101 Course
         {
             DataClassification = ToBeClassified;
         }
+        field(30; Description; Text[50])
+        {
+            DataClassification = ToBeClassified;
+        }
         field(40; Type; Option)
         {
             DataClassification = ToBeClassified;
-            OptionMembers = "Instructor Led","E-Learning","Remote Training"
+            OptionMembers = "Instructor Led","e-Learning","Remote Training";
+        }
+        field(50; Duration; Decimal)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(60; Price; Decimal)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(70; Active; Boolean)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(80; Difficulty; Integer)
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(90; PassingRate; Integer)
+        {
+            DataClassification = ToBeClassified;
         }
     }
+
     keys
     {
         key(PK; Code)

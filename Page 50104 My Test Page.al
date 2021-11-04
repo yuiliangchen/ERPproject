@@ -9,6 +9,17 @@ page 50104 "My Test Page"
     {
         area(Content)
         {
+            group(Simple)
+            {
+                field("First Name"; FirstName)
+                {
+
+                }
+                field("Last Name"; LastName)
+                {
+
+                }
+            }
             group(Input)
             {
                 field(Value1; Value1)
@@ -90,6 +101,13 @@ page 50104 "My Test Page"
                     test_Codeunit();
                 end;
             }
+            action("Simple Codeunit Test")
+            {
+                trigger OnAction()
+                begin
+                    simple_Codeunit();;
+                end;
+            }
         }
     }
     
@@ -107,6 +125,8 @@ page 50104 "My Test Page"
         "Code Number": Code[10];
         Ch: Char;
         Color: Option Red, Orange, Yelloe, Green, Blue, Violet; 
+        FirstName: Text[30];
+        LastName: Text[30];
     
     procedure execute_Result();
     begin
@@ -119,5 +139,13 @@ page 50104 "My Test Page"
 //        Codeunit.run(50105);
         myCodeunit.initVariables(LoopNo, YesOrNo, Amount, "When Was It", "What Time", Description, "Code Number", Ch, Color);
         myCodeunit.Run();
+    end;
+    procedure simple_Codeunit();
+    var
+        mySimpleCodeunit: Codeunit 50106;
+    begin
+        mySimpleCodeunit.setFirstName(FirstName);
+        mySimpleCodeunit.setLastName(LastName);
+        mySimpleCodeunit.Run();
     end;
 }

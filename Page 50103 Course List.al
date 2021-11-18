@@ -51,20 +51,25 @@ page 50103 "Course List"
     {
         area(Processing)
         {
-            action(ActionName)
-            {
-                ApplicationArea = All;
-
-                trigger OnAction();
-                begin
-
-                end;
-            }
             action("Insert Table")
             {
                 trigger onAction();
                 begin
                     InsertNewRecord();
+                end;
+            }
+            action("Export Course Detail (XML)")
+            {
+                trigger OnAction()
+                begin
+                    Xmlport.Run(50106, false, false);
+                end;
+            }
+            action("Export Course Detail (Variable Text)")
+            {
+                trigger OnAction()
+                begin
+                    Xmlport.Run(50107, false, false);
                 end;
             }
         }
@@ -176,4 +181,170 @@ page 50103 "Course List"
         if (Rec.PassingRate >= 70) AND (Rec.Difficulty >= 6) then
             SPA := true;
     end;
+}
+xmlport 50106 "Course export XML"
+{
+    Direction = Export;
+    Format = Xml;
+    FormatEvaluate = Xml;
+
+    schema
+    {
+        textelement(Root)
+        {
+            tableelement(Course; Course)
+            {
+                fieldattribute(Code; Course.Code)
+                {
+
+                }
+                fieldattribute(Name; Course.Name)
+                {
+
+                }
+                fieldattribute(Description; Course.Description)
+                {
+
+                }
+                fieldattribute(Type; Course.Type)
+                {
+
+                }
+                fieldattribute(Duration; Course.Duration)
+                {
+
+                }
+                fieldattribute(Price; Course.Price)
+                {
+
+                }
+                fieldattribute(Active; Course.Active)
+                {
+
+                }
+                fieldattribute(Difficulty; Course.Difficulty)
+                {
+
+                }
+                fieldattribute(PassingRate; Course.PassingRate)
+                {
+
+                }
+            }
+        }
+    }
+
+    requestpage
+    {
+        layout
+        {
+            area(content)
+            {
+                group(GroupName)
+                {
+                    //    field(Name; SourceExpression)
+                    //    {
+
+                    //    }
+                }
+            }
+        }
+
+        actions
+        {
+            area(processing)
+            {
+                action(ActionName)
+                {
+
+                }
+            }
+        }
+    }
+
+    var
+        myInt: Integer;
+}
+xmlport 50107 "Course export VariableText"
+{
+    Direction = Export;
+    Format = VariableText;
+    FormatEvaluate = Xml;
+
+    schema
+    {
+        textelement(Root)
+        {
+            tableelement(Course; Course)
+            {
+                fieldattribute(Code; Course.Code)
+                {
+
+                }
+                fieldattribute(Name; Course.Name)
+                {
+
+                }
+                fieldattribute(Description; Course.Description)
+                {
+
+                }
+                fieldattribute(Type; Course.Type)
+                {
+
+                }
+                fieldattribute(Duration; Course.Duration)
+                {
+
+                }
+                fieldattribute(Price; Course.Price)
+                {
+
+                }
+                fieldattribute(Active; Course.Active)
+                {
+
+                }
+                fieldattribute(Difficulty; Course.Difficulty)
+                {
+
+                }
+                fieldattribute(PassingRate; Course.PassingRate)
+                {
+
+                }
+            }
+        }
+    }
+
+    requestpage
+    {
+        layout
+        {
+            area(content)
+            {
+                group(GroupName)
+                {
+                    //    field(Name; SourceExpression)
+                    //    {
+
+                    //    }
+                }
+            }
+        }
+
+        actions
+        {
+            area(processing)
+            {
+                action(ActionName)
+                {
+
+                }
+            }
+        }
+    }
+
+    var
+        myInt: Integer;
 }

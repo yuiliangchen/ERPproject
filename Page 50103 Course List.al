@@ -72,6 +72,13 @@ page 50103 "Course List"
                     Xmlport.Run(50107, false, false);
                 end;
             }
+            action("Course Report")
+            {
+                trigger OnAction()
+                begin
+                    Report.Run(50109, false, false);
+                end;
+            }
         }
     }
 

@@ -2,11 +2,37 @@ pageextension 50107 "Customer Card Extend" extends "Customer Card"
 {
     layout
     {
-        // Add changes to page layout here
+        // The "addlast" contruct adds the field control 
+        // as the last control in the group
+        addlast(General)
+        {
+            field("Reward ID"; Rec."Reward ID")
+            {
+                ApplicationArea = All;
+                // Lookup property is used to provide a
+                // lookup window for a text box.  It is set 
+                // to true, because a look up for the field
+                // needed.
+                Lookup = true;
+            }
+        }
     }
     
     actions
     {
+        // The "addfirst" construct adds the action as the 
+        // first action in the navigation group. 
+        addfirst(navigation)
+        {
+            action("Rewards")
+            {
+                ApplicationArea = All;
+                // "RunObject" sets the "Reward List" page as 
+                // the object that will run ehrn the action is
+                // activated.
+                RunObject = Page "Reward List"; 
+            }
+        }
         addlast(processing)
         {
             action(UpdateCreditLimit)

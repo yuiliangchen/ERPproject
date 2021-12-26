@@ -1,8 +1,8 @@
 {
   "id": "86dc14c6-8fce-47ae-a15a-a6162df6fdc8",
-  "name": "ERPproject",
+  "name": "ALProject1",
   "publisher": "Default publisher",
-  "version": "1.0.0.6",
+  "version": "1.0.0.1",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -20,7 +20,7 @@
       "to": 50149
     }
   ],
-  "contextSensitiveHelpUrl": " https://mysite.com/documentation/",
+  "contextSensitiveHelpUrl": "https://mysite.com/documentation/",
   "showMyCode": true,
   "runtime": "6.0"
 }

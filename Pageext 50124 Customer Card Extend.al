@@ -1,36 +1,36 @@
-pageextension 50107 "Customer Card Extend" extends "Customer Card"
+pageextension 50124 "Customer Card Ext" extends "Customer Card"
 {
     layout
-    {
-        // The "addlast" contruct adds the field control 
-        // as the last control in the group
+    {   
+        // The "addlast" construct adds the field control as the last control in the General 
+        // group.
         addlast(General)
         {
-            field("Reward ID"; Rec."Reward ID")
+            field("Reward ID";rec."Reward ID")
             {
                 ApplicationArea = All;
-                // Lookup property is used to provide a
-                // lookup window for a text box.  It is set 
-                // to true, because a look up for the field
-                // needed.
+
+                // Lookup property is used to provide a lookup window for 
+                // a text box. It is set to true, because a lookup for 
+                // the field is needed.
                 Lookup = true;
             }
         }
     }
-    
+
     actions
     {
-        // The "addfirst" construct adds the action as the 
-        // first action in the navigation group. 
-        addfirst(navigation)
+        // The "addfirst" construct will add the action as the first action
+        // in the Navigation group.
+        addfirst(Navigation)
         {
             action("Rewards")
             {
                 ApplicationArea = All;
-                // "RunObject" sets the "Reward List" page as 
-                // the object that will run ehrn the action is
-                // activated.
-                RunObject = Page "Reward List"; 
+
+                // "RunObject" sets the "Reward List" page as the object 
+                // that will run when the action is activated.
+                RunObject = page "Reward List";
             }
         }
         addlast(processing)
@@ -49,8 +49,8 @@ pageextension 50107 "Customer Card Extend" extends "Customer Card"
                 end;
             }
         }
+
     }
-    
     var
         Text90001: TextConst ENU = 'Are you sure that you want to set the %1 to %2';
         Text90002: TextConst ENU = 'The credit limit was rounded to %1 to comply with company policies.';
